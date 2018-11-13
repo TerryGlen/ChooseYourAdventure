@@ -1,10 +1,13 @@
 package com.example.tglinsey.chooseyouradventure;
 
+import android.widget.TextView;
+
 import java.util.Scanner;
 
 public class Game {
     private static String[] choices;
     private static int userChoice;
+
 
 
     public static void main(String[] args) {
