@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Button choice1;
     Button choice2;
     Button choice3;
+    String storyText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +32,30 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    private void updateDisplay(String storyText,  HashMap<String, String> choicesMap)
+){
+        for (Map.Entry<String, Integer)){
+            choice.
+        }
+        
+    }
+    /**for (Map.Entry<String, Object> entry : map.entrySet()) {
+    String key = entry.getKey();
+    Object value = entry.getValue();
+    // ...
+}**/
     private void start() {
+        HashMap<String, Integer> choicesMap  = new HashMap<String, Integer>();
+        choicesMap.put("Mountains", 12);
+        choicesMap.put("Clearing", 10):
+        choicesMap.put("River", 4);
+        storyText = "Choose a place to go" ;
+        
+        updateDisplay(storyText, choicesMap);
         choice1.setText("Mountains");
         choice2.setText("Clearing");
         choice3.setText("River");
-        displayText.setText("Choose a place to go");
+       
         choice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
