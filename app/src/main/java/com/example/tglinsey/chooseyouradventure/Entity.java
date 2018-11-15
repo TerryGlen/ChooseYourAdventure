@@ -1,13 +1,11 @@
 package com.example.tglinsey.chooseyouradventure;
 
-import java.util.ArrayList;
-
 public class Entity {
     private int mMaxHP;
     private int maxAtk;
     private int minAtk;
     private int currentHP;
-    public boolean playerDead;
+    public boolean isDead = false;
 
 
     Entity(){
@@ -15,7 +13,7 @@ public class Entity {
         minAtk = 2;
         mMaxHP = 10;
         currentHP = mMaxHP;
-        playerDead = false;
+        isDead = false;
 
 
     }
@@ -23,7 +21,7 @@ public class Entity {
     public void takeDamage(int damageTaken){
         mMaxHP -= damageTaken;
         if(currentHP <= 0 ){
-            playerDead = true;
+            isDead = true;
         }
 
     }

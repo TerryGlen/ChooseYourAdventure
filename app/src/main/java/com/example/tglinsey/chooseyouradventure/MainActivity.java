@@ -9,7 +9,7 @@ import android.widget.TextView;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private static String[] choices;
     private static int userChoice;
@@ -32,49 +32,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-  /*  private void updateDisplay(String storyText, HashMap<String, Integer> choicesMap) {
-        View.OnClickListener clickListener;
-        displayText.setText(storyText);
-        for (final Map.Entry<String, Integer> choice : choicesMap.entrySet()) {
-            clickListener = new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    switchfunction(choice.getValue());
-                }
-            };
-            choice.getKey();
-            choice.getValue();
-        }
-    }
-
-    private void switchfunction(int value) {
-        switch (value) {
-            case 1:
-                first();
-            case 2:
-                second();
-            case 3:
-                third();
-        }
-    }*/
     /**for (Map.Entry<String, Object> entry : map.entrySet()) {
     String key = entry.getKey();
     Object value = entry.getValue();
     // ...
 }**/
     private void start() {
-        //HashMap<String, Integer> choicesMap  = new HashMap<String, Integer>();
-        //choicesMap.put("Mountains", 12);
-      //  choicesMap.put("Clearing", 10);
-        //choicesMap.put("River", 4);
-        storyText = "Choose a place to go" ;
-        displayText.setText(storyText);
-        //updateDisplay(storyText, choicesMap);
+        displayText.setText("You are at a crossroads");
         choice1.setText("Mountains");
         choice2.setText("Clearing");
         choice3.setText("River");
        
-        choice1.setOnClickListener(new View.OnClickListener() {
+   choice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 first();
@@ -92,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 third();
             }
+
         });
     }
 

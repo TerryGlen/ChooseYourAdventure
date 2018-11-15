@@ -1,7 +1,5 @@
 package com.example.tglinsey.chooseyouradventure;
 
-import android.widget.TextView;
-
 import java.util.Scanner;
 
 public class Game {
@@ -121,18 +119,18 @@ public class Game {
                 break;
         }
     }
-    public static void combat(Entity entity, Entity enemy){
+    public static void combat(Entity player, Entity enemy){
         //While both enemy and entity are alive, continue combat.
         int playerAttack;
         int enemyAttack;
-        while(!entity.playerDead || !enemy.playerDead){
-            playerAttack = entity.attack();
+        while(!player.isDead || !enemy.isDead){
+            playerAttack = player.attack();
             enemyAttack = enemy.attack();
             System.out.println("Entity takes " + enemyAttack + " damage");
             System.out.println("Enemy takes " + playerAttack + " damage");
 
         }
-        if(entity.playerDead){
+        if(player.isDead){
             die();
         }
 
