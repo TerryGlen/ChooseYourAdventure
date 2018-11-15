@@ -63,14 +63,14 @@ public class MainActivity extends AppCompatActivity {
     // ...
 }**/
     private void start() {
-        HashMap<String, Integer> choicesMap  = new HashMap<String, Integer>();
-        choicesMap.put("Mountains", 12);
-        choicesMap.put("Clearing", 10);
-        choicesMap.put("River", 4);
+        //HashMap<String, Integer> choicesMap  = new HashMap<String, Integer>();
+        //choicesMap.put("Mountains", 12);
+      //  choicesMap.put("Clearing", 10);
+        //choicesMap.put("River", 4);
         storyText = "Choose a place to go" ;
-        
+        displayText.setText(storyText);
         //updateDisplay(storyText, choicesMap);
-        /*choice1.setText("Mountains");
+        choice1.setText("Mountains");
         choice2.setText("Clearing");
         choice3.setText("River");
        
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 third();
             }
-        });*/
+        });
     }
 
     private void first() {
