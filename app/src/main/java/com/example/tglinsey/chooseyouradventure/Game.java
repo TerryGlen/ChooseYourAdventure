@@ -1,11 +1,17 @@
 package com.example.tglinsey.chooseyouradventure;
 
+import com.example.tglinsey.chooseyouradventure.Entities.Enemies.Alligator;
+import com.example.tglinsey.chooseyouradventure.Entities.Entity;
+import com.example.tglinsey.chooseyouradventure.Entities.Enemies.Goblin;
+import com.example.tglinsey.chooseyouradventure.Entities.Player;
+
 import java.util.Scanner;
 
 public class Game {
     private static String[] choices;
     private static int userChoice;
-
+    private static Player player;
+    private static Entity enemy;
 
 
     public static void main(String[] args) {
@@ -32,9 +38,12 @@ public class Game {
     }
 
     public static void start() {
+        player = new Player("Fighter") ;
+        enemy = new Alligator();
         choices = new String[]{"Go Left", "Go Right", "Go Up"};
         System.out.println("You are at a crossroads");
         userChoice = returnChoice(choices);
+        combat(player, enemy);
         switch (userChoice) {
             case 1:
                 left();
@@ -51,10 +60,11 @@ public class Game {
     }
 
     public static void left() {
-
+        enemy = new Alligator();
         choices = new String[]{"Go Up", "Go Down"};
         System.out.println("You went left");
         userChoice = returnChoice(choices);
+        combat(player, enemy);
 
         switch (userChoice) {
             case 1:
@@ -119,15 +129,19 @@ public class Game {
                 break;
         }
     }
-    public static void combat(Entity player, Entity enemy){
+    public static void combat(Player player, Entity enemy){
         //While both enemy and entity are alive, continue combat.
         int playerAttack;
         int enemyAttack;
-        while(!player.isDead || !enemy.isDead){
+        System.out.println(enemy.getFlavorText());
+        while(!player.isDead && !enemy.isDead){
             playerAttack = player.attack();
             enemyAttack = enemy.attack();
-            System.out.println("Entity takes " + enemyAttack + " damage");
-            System.out.println("Enemy takes " + playerAttack + " damage");
+            enemy.takeDamage(playerAttack);
+            player.takeDamage(enemyAttack);
+            System.out.println("Enemy takes " + playerAttack + " damage. HP is " + enemy.getCurrentHP());
+            System.out.println("Player takes " + enemyAttack + " damage. HP is " + player.getCurrentHP());
+
 
         }
         if(player.isDead){
