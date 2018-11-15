@@ -1,15 +1,13 @@
 package com.example.tglinsey.chooseyouradventure;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,11 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void updateDisplay(String storyText,  HashMap<String, Integer> choicesMap)
-    {
+  /*  private void updateDisplay(String storyText, HashMap<String, Integer> choicesMap) {
         View.OnClickListener clickListener;
         displayText.setText(storyText);
-        for (final Map.Entry<String, Integer> choice :choicesMap.entrySet()){
+        for (final Map.Entry<String, Integer> choice : choicesMap.entrySet()) {
             clickListener = new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -49,8 +46,9 @@ public class MainActivity extends AppCompatActivity {
             choice.getValue();
         }
     }
-    private void switchfunction(int value){
-        switch(value){
+
+    private void switchfunction(int value) {
+        switch (value) {
             case 1:
                 first();
             case 2:
@@ -58,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             case 3:
                 third();
         }
-    }
+    }*/
     /**for (Map.Entry<String, Object> entry : map.entrySet()) {
     String key = entry.getKey();
     Object value = entry.getValue();
@@ -71,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         choicesMap.put("River", 4);
         storyText = "Choose a place to go" ;
         
-        updateDisplay(storyText, choicesMap);
+        //updateDisplay(storyText, choicesMap);
         /*choice1.setText("Mountains");
         choice2.setText("Clearing");
         choice3.setText("River");
