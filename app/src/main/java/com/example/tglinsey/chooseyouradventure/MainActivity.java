@@ -6,18 +6,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity{
-
-    private static String[] choices;
-    private static int userChoice;
+    
     TextView displayText;
     Button choice1;
     Button choice2;
     Button choice3;
     String storyText;
+    String inventoryText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +40,15 @@ public class MainActivity extends AppCompatActivity{
 }**/
 
 
-    //CHANGE THE SETONCLICKLISTENER LINKS AFTER MAKING FUNCTIONS
-    //ON INVISIBLE CHOICES, DO YOU NEED TO EVEN DEFINE SETTEXT AND ONCLICKLISTENER?
+
+
 
     private void make_visible(){
         choice1.setVisibility(View.VISIBLE);
         choice2.setVisibility(View.VISIBLE);
         choice3.setVisibility(View.VISIBLE);
     }
+
     private void welcome_intro(){
         make_visible();
         displayText.setText("Welcome Adventurer! To prove your worth to the guild you must go on a quest");
@@ -150,18 +152,21 @@ public class MainActivity extends AppCompatActivity{
         choice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                inventoryText = "sword";
                 start_choice();
             }
         });
         choice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                inventoryText = "bow";
                 start_choice();
             }
         });
         choice3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                inventoryText = "mace";
                 start_choice();
             }
         });
@@ -177,18 +182,21 @@ public class MainActivity extends AppCompatActivity{
         choice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                inventoryText = "staff";
                 start_choice();
             }
         });
         choice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                inventoryText = "lute";
                 start_choice();
             }
         });
         choice3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                inventoryText = "wand";
                 start_choice();
             }
         });
@@ -617,6 +625,7 @@ public class MainActivity extends AppCompatActivity{
             }
         });
     }
+
     private void berries_choice(){
         make_visible();
         displayText.setText("You decided to eat the berries from the bushes in the clearing. You suddenly feel ill...");
@@ -877,7 +886,30 @@ public class MainActivity extends AppCompatActivity{
         choice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fight_bar();
+                if(inventoryText == "sword"){
+                    fight_bar_sword();
+                }
+
+                if(inventoryText == "bow"){
+                    fight_bar_bow();
+                }
+
+                if(inventoryText == "mace"){
+                    fight_bar_mace();
+                }
+
+                if(inventoryText == "staff"){
+                    fight_bar_staff();
+                }
+
+                if(inventoryText == "lute"){
+                    fight_bar_lute();
+                }
+
+                if(inventoryText == "wand"){
+                    fight_bar_wand();
+                }
+
             }
         });
         choice2.setVisibility(View.INVISIBLE);
@@ -910,9 +942,34 @@ public class MainActivity extends AppCompatActivity{
         });
     }
 
-    private void fight_bar(){
+    private void fight_bar_sword(){
         make_visible();
-        displayText.setText("You choose to fight. You get badly injured and decide the bar is not the place to be. Do you choose " +
+        displayText.setText("You choose to fight. You draw your sword and prepare to lunge at the man; however, just before the slaying begins, the barkeep tells you " +
+                        "take the fight outside, to which the drunken man sits down for another drink. You decide the bar is not the place to be. Do you choose to " +
+                        "go to the inn or the shop?");
+        choice1.setText("To inn");
+        choice2.setText("");
+        choice3.setText("To shop");
+
+        choice1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inn_choice2();
+            }
+        });
+        choice2.setVisibility(View.INVISIBLE);
+        choice3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shop_choice();
+            }
+        });
+    }
+
+    private void fight_bar_bow(){
+        make_visible();
+        displayText.setText("You choose to fight; however, drawing and nocking arrows in a dense crowd is more difficult than it sounds. The drunken man lands a solid "+
+                "blow, upon which you decide the bar is not the place to be. Do you choose " +
                 "to go to the inn or the shop to seek comfort?");
         choice1.setText("To inn");
         choice2.setText("");
@@ -932,6 +989,102 @@ public class MainActivity extends AppCompatActivity{
             }
         });
     }
+
+    private void fight_bar_mace(){
+        make_visible();
+        displayText.setText("You choose to fight. In an instant your mace is above your head, ready to crush the lowlife's skull; however, just before the crushing "+
+                " starts, the barkeep tells you to take the fight outside, to which the drunken man sits down for another drink. You decide the bar is not the place to be. Do you choose " +
+                "to go to the inn or the shop to seek comfort?");
+        choice1.setText("To inn");
+        choice2.setText("");
+        choice3.setText("To shop");
+
+        choice1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inn_choice2();
+            }
+        });
+        choice2.setVisibility(View.INVISIBLE);
+        choice3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shop_choice();
+            }
+        });
+    }
+
+    private void fight_bar_staff(){
+        make_visible();
+        displayText.setText("You choose to fight; however, while your staff is great for fighting from a distance, it can hardly be used in a crowded tavern. When the " +
+                "barkeep tells you two to take the fight outside, the drunken man sits down for another drink, and you decide the bar is not the place to be. Do you choose " +
+                "to go to the inn or the shop to seek comfort?");
+        choice1.setText("To inn");
+        choice2.setText("");
+        choice3.setText("To shop");
+
+        choice1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inn_choice2();
+            }
+        });
+        choice2.setVisibility(View.INVISIBLE);
+        choice3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shop_choice();
+            }
+        });
+    }
+
+    private void fight_bar_lute(){
+        make_visible();
+        displayText.setText("You choose to fight; songs have won many a battle. But not this one, since the brawler is apparently tone deaf. You get badly injured and decide the bar is not the place to be. Do you choose " +
+                "to go to the inn or the shop to seek comfort?");
+        choice1.setText("To inn");
+        choice2.setText("");
+        choice3.setText("To shop");
+
+        choice1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inn_choice2();
+            }
+        });
+        choice2.setVisibility(View.INVISIBLE);
+        choice3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shop_choice();
+            }
+        });
+    }
+
+    private void fight_bar_wand(){
+        make_visible();
+        displayText.setText("You choose to fight. A solid thwack on the head with your wand does not seem to deter the brawler. Consequently, you get badly injured and decide the bar is not the place to be. Do you choose " +
+                "to go to the inn or the shop to seek comfort?");
+        choice1.setText("To inn");
+        choice2.setText("");
+        choice3.setText("To shop");
+
+        choice1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inn_choice2();
+            }
+        });
+        choice2.setVisibility(View.INVISIBLE);
+        choice3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shop_choice();
+            }
+        });
+    }
+
+
 
     private void yes_yes(){
         make_visible();
