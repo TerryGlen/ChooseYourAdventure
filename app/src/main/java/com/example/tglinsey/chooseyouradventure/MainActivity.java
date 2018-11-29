@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         displayText = (TextView) findViewById(R.id.storyText);
         choice1 = (Button) findViewById(R.id.choice1);
