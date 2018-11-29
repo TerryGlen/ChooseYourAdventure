@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity{
-    
+
     TextView displayText;
     Button choice1;
     Button choice2;
